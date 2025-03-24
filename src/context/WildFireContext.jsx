@@ -13,7 +13,7 @@ export const WildFireProvider= ({ children }) => {
     const fetchWildFireEvents = async () => {
       setLoading(true);
       try {
-        const res = await axios.get('https://eonet.gsfc.nasa.gov/api/v2.1/events?days=300');
+        const res = await axios.get('https://eonet.gsfc.nasa.gov/api/v2.1/events?days=250');
         const wildfireEvents = res.data.events.filter((event) => event.categories.some((cat) => cat.id === 8 ));
         setWildFires(wildfireEvents);
       } catch (error) {
